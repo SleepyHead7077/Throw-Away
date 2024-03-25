@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Random_System : MonoBehaviour
 {
-    //¾²·¹±â ¹× ÀçÈ°¿ë ¾²·¹±â º¯¼ö
+    //ì“°ë ˆê¸° ë° ì¬í™œìš© ì“°ë ˆê¸° ë³€ìˆ˜
     public GameObject trash1;
     public GameObject trash2;
     public GameObject recycle1;
     public GameObject recycle2;
 
-    //¿ÀºêÁ§Æ® À§Ä¡ º¯¼ö
+    //ì˜¤ë¸Œì íŠ¸ ìœ„ì¹˜ ë³€ìˆ˜
     public Transform pos1;
     public Transform pos2;
     public Transform pos3;
@@ -30,22 +30,22 @@ public class Random_System : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startRandom_item();  //½ÃÀÛ ½Ã ·£´ıÇÑ ¿ÀºêÁ§Æ® ¼³Á¤ ÈÄ ¹èÄ¡
+        startRandom_item();  //ì‹œì‘ ì‹œ ëœë¤í•œ ì˜¤ë¸Œì íŠ¸ ì„¤ì • í›„ ë°°ì¹˜
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))  //½ºÆäÀÌ½º ´©¸£¸é Ã¹ ¹øÂ° ¿ÀºêÁ§Æ® »èÁ¦ ÈÄ »õ ¿ÀºêÁ§Æ® »ı¼º ¹× ÀÌµ¿
+        if (Input.GetKeyDown(KeyCode.Space))  //ìŠ¤í˜ì´ìŠ¤ ëˆ„ë¥´ë©´ ì²« ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ ì‚­ì œ í›„ ìƒˆ ì˜¤ë¸Œì íŠ¸ ìƒì„± ë° ì´ë™
             makeRandom_item();
     }
 
-    void startRandom_item()  //½ÃÀÛ ½Ã ·£´ıÇÑ ¿ÀºêÁ§Æ® ¼³Á¤ ÈÄ ¹èÄ¡
+    void startRandom_item()  //ì‹œì‘ ì‹œ ëœë¤í•œ ì˜¤ë¸Œì íŠ¸ ì„¤ì • í›„ ë°°ì¹˜
     {
-        int rvalue1 = Random.Range(0, 3);
-        int rvalue2 = Random.Range(0, 3);
-        int rvalue3 = Random.Range(0, 3);
-        int rvalue4 = Random.Range(0, 3);
+        int rvalue1 = Random.Range(0, 4);
+        int rvalue2 = Random.Range(0, 4);
+        int rvalue3 = Random.Range(0, 4);
+        int rvalue4 = Random.Range(0, 4);
 
         switch(rvalue1)
         {
@@ -111,17 +111,17 @@ public class Random_System : MonoBehaviour
                 break;
         }
 
-        Instantiate(rStart1, pos1);  //»ı¼º
+        Instantiate(rStart1, pos1);  //ìƒì„±
         Instantiate(rStart2, pos2);
         Instantiate(rStart3, pos3);
         Instantiate(rStart4, pos4);
     }
 
-    void makeRandom_item()  //½ºÆäÀÌ½º ´©¸£¸é Ã¹ ¹øÂ° ¿ÀºêÁ§Æ® »èÁ¦ ÈÄ »õ ¿ÀºêÁ§Æ® »ı¼º ¹× ÀÌµ¿
+    void makeRandom_item()  //ìŠ¤í˜ì´ìŠ¤ ëˆ„ë¥´ë©´ ì²« ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ ì‚­ì œ í›„ ìƒˆ ì˜¤ë¸Œì íŠ¸ ìƒì„± ë° ì´ë™
     {
-        int makeRandom_value = Random.Range(0, 3);
+        int makeRandom_value = Random.Range(0, 4);
 
-        switch(makeRandom_value)  //random º¯¼ö¿¡ »õ·Î¿î ¿ÀºêÁ§Æ® ÇÒ´ç
+        switch(makeRandom_value)  //random ë³€ìˆ˜ì— ìƒˆë¡œìš´ ì˜¤ë¸Œì íŠ¸ í• ë‹¹
         {
             case 0:
                 random = trash1;
@@ -142,12 +142,12 @@ public class Random_System : MonoBehaviour
         rStart3 = rStart4;
         rStart4 = random;
 
-        Destroy(pos1.transform.GetChild(0).gameObject);  //»èÁ¦
+        Destroy(pos1.transform.GetChild(0).gameObject);  //ì‚­ì œ
         Destroy(pos2.transform.GetChild(0).gameObject);
         Destroy(pos3.transform.GetChild(0).gameObject);
         Destroy(pos4.transform.GetChild(0).gameObject);
 
-        Instantiate(rStart1, pos1);  //»ı¼º
+        Instantiate(rStart1, pos1);  //ìƒì„±
         Instantiate(rStart2, pos2);
         Instantiate(rStart3, pos3);
         Instantiate(random, pos4);
