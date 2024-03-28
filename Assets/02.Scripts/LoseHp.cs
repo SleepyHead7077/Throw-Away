@@ -13,7 +13,7 @@ public class GameManaher : MonoBehaviour
     void Awake()
     {
         gaugeReduce();
-        StartCoroutine("CheckGauge");
+        StartCoroutine(CheckGauge());
     }
 
     public void SetMaxHealth(int health)
@@ -39,7 +39,7 @@ public class GameManaher : MonoBehaviour
         Invoke("gaugeReduce", 0.01f);
     }
 
-    IEnumerator checkGauge()
+    IEnumerator CheckGauge()
     {
         while (slider.value != 0)
         {
