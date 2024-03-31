@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class Random_System : MonoBehaviour
 {
-    //¾²·¹±â ¹× ÀçÈ°¿ë ¾²·¹±â º¯¼ö
+    //ì“°ë ˆê¸° ë° ì¬í™œìš© ì“°ë ˆê¸° ë³€ìˆ˜
     public GameObject trash1;
     public GameObject trash2;
+    public GameObject trash3;
     public GameObject recycle1;
     public GameObject recycle2;
+    public GameObject recycle3;
 
-    //¿ÀºêÁ§Æ® À§Ä¡ º¯¼ö
+    //ì˜¤ë¸Œì íŠ¸ ìœ„ì¹˜ ë³€ìˆ˜
     public Transform pos1;
     public Transform pos2;
     public Transform pos3;
     public Transform pos4;
 
+    public Transform tPos;
+    public Transform rPos;
+
     private GameObject random;
-    //private GameObject random1;
-    //private GameObject random2;
-    //private GameObject random3;
-    //private GameObject random4;
 
     private GameObject rStart1;
     private GameObject rStart2;
@@ -30,22 +31,25 @@ public class Random_System : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startRandom_item();  //½ÃÀÛ ½Ã ·£´ıÇÑ ¿ÀºêÁ§Æ® ¼³Á¤ ÈÄ ¹èÄ¡
+        startRandom_item();  //ì‹œì‘ ì‹œ ëœë¤í•œ ì˜¤ë¸Œì íŠ¸ ì„¤ì • í›„ ë°°ì¹˜
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))  //½ºÆäÀÌ½º ´©¸£¸é Ã¹ ¹øÂ° ¿ÀºêÁ§Æ® »èÁ¦ ÈÄ »õ ¿ÀºêÁ§Æ® »ı¼º ¹× ÀÌµ¿
-            makeRandom_item();
+        if (Input.GetKeyDown(KeyCode.LeftArrow))  //
+            trashBtn();
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))  //
+            recycleBtn();
     }
 
-    void startRandom_item()  //½ÃÀÛ ½Ã ·£´ıÇÑ ¿ÀºêÁ§Æ® ¼³Á¤ ÈÄ ¹èÄ¡
+    void startRandom_item()  //ì‹œì‘ ì‹œ ëœë¤í•œ ì˜¤ë¸Œì íŠ¸ ì„¤ì • í›„ ë°°ì¹˜
     {
-        int rvalue1 = Random.Range(0, 3);
-        int rvalue2 = Random.Range(0, 3);
-        int rvalue3 = Random.Range(0, 3);
-        int rvalue4 = Random.Range(0, 3);
+        int rvalue1 = Random.Range(0, 6);
+        int rvalue2 = Random.Range(0, 6);
+        int rvalue3 = Random.Range(0, 6);
+        int rvalue4 = Random.Range(0, 6);
 
         switch(rvalue1)
         {
@@ -60,6 +64,12 @@ public class Random_System : MonoBehaviour
                 break;
             case 3:
                 rStart1 = recycle2;
+                break;
+            case 4:
+                rStart1 = trash3;
+                break;
+            case 5:
+                rStart1 = recycle3;
                 break;
         }
 
@@ -77,6 +87,12 @@ public class Random_System : MonoBehaviour
             case 3:
                 rStart2 = recycle2;
                 break;
+            case 4:
+                rStart2 = trash3;
+                break;
+            case 5:
+                rStart2 = recycle3;
+                break;
         }
 
         switch (rvalue3)
@@ -92,6 +108,12 @@ public class Random_System : MonoBehaviour
                 break;
             case 3:
                 rStart3 = recycle2;
+                break;
+            case 4:
+                rStart3 = trash3;
+                break;
+            case 5:
+                rStart3 = recycle3;
                 break;
         }
 
@@ -109,19 +131,53 @@ public class Random_System : MonoBehaviour
             case 3:
                 rStart4 = recycle2;
                 break;
+            case 4:
+                rStart4 = trash3;
+                break;
+            case 5:
+                rStart4 = recycle3;
+                break;
         }
 
-        Instantiate(rStart1, pos1);  //»ı¼º
+        Instantiate(rStart1, pos1);  //ìƒì„±
         Instantiate(rStart2, pos2);
         Instantiate(rStart3, pos3);
         Instantiate(rStart4, pos4);
     }
 
-    void makeRandom_item()  //½ºÆäÀÌ½º ´©¸£¸é Ã¹ ¹øÂ° ¿ÀºêÁ§Æ® »èÁ¦ ÈÄ »õ ¿ÀºêÁ§Æ® »ı¼º ¹× ÀÌµ¿
+    void trashBtn()
     {
-        int makeRandom_value = Random.Range(0, 3);
+        StartCoroutine(MoveTrash());
+    }
 
-        switch(makeRandom_value)  //random º¯¼ö¿¡ »õ·Î¿î ¿ÀºêÁ§Æ® ÇÒ´ç
+    IEnumerator MoveTrash()
+    {
+        pos1.transform.GetChild(0).position = Vector3.MoveTowards(transform.position, tPos.position, 3f);
+
+        yield return new WaitForSecondsRealtime(0.2f);
+
+        makeRandom_item();
+    }
+
+    void recycleBtn()
+    {
+        StartCoroutine(MoveRecycle());
+    }
+
+    IEnumerator MoveRecycle()
+    {
+        pos1.transform.GetChild(0).position = Vector3.MoveTowards(transform.position, rPos.position, 3f);
+
+        yield return new WaitForSecondsRealtime(0.2f);
+
+        makeRandom_item();
+    }
+
+    void makeRandom_item()  //ìŠ¤í˜ì´ìŠ¤ ëˆ„ë¥´ë©´ ì²« ë²ˆì§¸ ì˜¤ë¸Œì íŠ¸ ì‚­ì œ í›„ ìƒˆ ì˜¤ë¸Œì íŠ¸ ìƒì„± ë° ì´ë™
+    {
+        int makeRandom_value = Random.Range(0, 4);
+
+        switch(makeRandom_value)  //random ë³€ìˆ˜ì— ìƒˆë¡œìš´ ì˜¤ë¸Œì íŠ¸ í• ë‹¹
         {
             case 0:
                 random = trash1;
@@ -135,6 +191,12 @@ public class Random_System : MonoBehaviour
             case 3:
                 random = recycle2;
                 break;
+            case 4:
+                random = trash3;
+                break;
+            case 5:
+                random = recycle3;
+                break;
         }
 
         rStart1 = rStart2;
@@ -142,12 +204,12 @@ public class Random_System : MonoBehaviour
         rStart3 = rStart4;
         rStart4 = random;
 
-        Destroy(pos1.transform.GetChild(0).gameObject);  //»èÁ¦
+        Destroy(pos1.transform.GetChild(0).gameObject);  //ì‚­ì œ
         Destroy(pos2.transform.GetChild(0).gameObject);
         Destroy(pos3.transform.GetChild(0).gameObject);
         Destroy(pos4.transform.GetChild(0).gameObject);
 
-        Instantiate(rStart1, pos1);  //»ı¼º
+        Instantiate(rStart1, pos1);  //ìƒì„±
         Instantiate(rStart2, pos2);
         Instantiate(rStart3, pos3);
         Instantiate(random, pos4);
