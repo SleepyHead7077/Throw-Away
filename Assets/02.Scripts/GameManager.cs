@@ -9,22 +9,22 @@ public class GameManager : MonoBehaviour
 {
     public TMP_Text scoreText;
 
-    public bool gameOver = false;
+    public bool gameOver = false;  // 게임 오버 판정할 변수
 
     public int score = 0;
-    private Random_System manager;
+    private Random_System manager;  // Random_System 스크립트 정보 받아와서 저장할 변수
 
     void Start()
     {
-        manager = gameObject.GetComponent<Random_System>();
+        manager = gameObject.GetComponent<Random_System>();  // Random_System 스크립트 정보 받아와서 변수에 저장
         UpdateScoreText();
     }
 
     private void Update()
     {
-        if (gameOver == true)
+        if (gameOver == true)  // 매 프레임마다 게임오버 상태 체크
         {
-            manager.enabled = false;
+            manager.enabled = false;  // 게임 오버 시 Random_System 스크립트 비활성화
         }
     }
 
