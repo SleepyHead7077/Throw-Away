@@ -363,7 +363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -949,7 +949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1044333560}
   - component: {fileID: 1044333562}
-  - component: {fileID: 1044333561}
+  - component: {fileID: 1044333563}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -978,21 +978,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -80}
   m_SizeDelta: {x: 800, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1044333561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044333559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd1b023db9b55fc42b15a2817d30b017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  slider: {fileID: 1044333562}
-  gaugeStart: 1
 --- !u!114 &1044333562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,12 +1023,29 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1044333563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044333559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1b023db9b55fc42b15a2817d30b017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1044333562}
+  gaugeStart: 1
+  gaugeReductionRate: 2.5
+  score: 0
+  time: 0
 --- !u!1 &1232113179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,6 +1451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 422793560}
+  gameOver: 0
+  score: 0
 --- !u!1 &2008437699
 GameObject:
   m_ObjectHideFlags: 0

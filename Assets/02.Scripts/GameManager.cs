@@ -9,12 +9,25 @@ public class GameManager : MonoBehaviour
 {
     public TMP_Text scoreText;
 
-    private int score = 0;
+    public bool gameOver = false;
+
+    public int score = 0;
+    private Random_System manager;
 
     void Start()
     {
+        manager = gameObject.GetComponent<Random_System>();
         UpdateScoreText();
     }
+
+    private void Update()
+    {
+        if (gameOver == true)
+        {
+            manager.enabled = false;
+        }
+    }
+
     public void IncreaseScore()
     {
         score++;
@@ -29,6 +42,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "" + score;
     }
 }
