@@ -11,6 +11,8 @@ public class RecycleCheck : MonoBehaviour
     public GameObject Correct;
     public GameObject Wrong;
 
+    public bool RChecked = false; //제대로 분류했을때를 확인하여 체력을 회복시키기 위하여 만들어졌습니다
+
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "TRASH")
@@ -23,6 +25,9 @@ public class RecycleCheck : MonoBehaviour
         {
             StartCoroutine(Green());
             gameManager.IncreaseScore();
+            RChecked = true;
+            yield return new WaitForSecondsRealtime(0.01f);
+            RChecked = false;
         }
     }
 
