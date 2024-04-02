@@ -11,12 +11,17 @@ public class TrashCheck : MonoBehaviour
     public GameObject Correct;
     public GameObject Wrong;
 
+    public bool TChecked = false; //제대로 분류했을때를 확인하여 체력을 회복시키기 위하여 만들어졌습니다
+
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "TRASH")
         {
             StartCoroutine(Green());
             gameManager.IncreaseScore();
+            TChecked = true;
+            yield return new WaitForSecondsRealtime(0.01f);
+            TChecked = false;
         }
 
         if (coll.gameObject.tag == "RECYCLE")
