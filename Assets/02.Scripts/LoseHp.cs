@@ -76,6 +76,18 @@ public class GameManaher : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
     }
 
+    IEumerator HpRecover()
+    {
+        if (gaugeStart)
+        {
+            if (scoreObject.GetComponent<TrashCheck>().TChecked = true || scoreObject.GetComponent<RecycleCheck>().RChecked = true)
+            {
+                slider.value += 2.5f * time.deltaTime;
+            }
+        }
+        yield return new WaitForSecondsRealtime(1f);
+    }
+
     IEnumerator CheckGauge()
     {
         while (slider.value != 0)
