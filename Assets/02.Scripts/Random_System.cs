@@ -145,7 +145,7 @@ public class Random_System : MonoBehaviour
         Instantiate(rStart4, pos4);
     }
 
-    void trashBtn()
+    public void trashBtn()
     {
         StartCoroutine(MoveTrash());
     }
@@ -159,7 +159,7 @@ public class Random_System : MonoBehaviour
         makeRandom_item();
     }
 
-    void recycleBtn()
+    public void recycleBtn()
     {
         StartCoroutine(MoveRecycle());
     }

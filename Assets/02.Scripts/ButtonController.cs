@@ -5,20 +5,32 @@ using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
-    public GameManager gameManager;
+    public Button Leftbutton;
+    public Button Rightbutton;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(OnClick);
+        GameObject GameManager = GameObject.Find("GameManager");
+        if (GameManager != null)
+        {
+            Random_System random = GameManager.GetComponentInChildren<Random_System>();
+
+            if (random != null)
+            {
+                Leftbutton.onClick.AddListener(random.trashBtn);
+                Rightbutton.onClick.AddListener(random.recycleBtn);
+            }
+            else
+            {
+                Debug.LogError("할당 오류");
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-    void OnClick()
-    {
-        gameManager.IncreaseScore();
     }
 }
