@@ -358,7 +358,7 @@ public class Random_System : MonoBehaviour
 
     void makeRandom_item()  //스페이스 누르면 첫 번째 오브젝트 삭제 후 새 오브젝트 생성 및 이동
     {
-        int makeRandom_value = Random.Range(0, 4);
+        int makeRandom_value = Random.Range(0, 20);
 
         switch(makeRandom_value)  //random 변수에 새로운 오브젝트 할당
         {
