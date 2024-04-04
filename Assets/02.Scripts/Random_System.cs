@@ -72,58 +72,58 @@ public class Random_System : MonoBehaviour
                 rStart1 = trash1;
                 break;
             case 1:
-                rStart1 = trash2;
-                break;
-            case 2:
-                rStart1 = trash3;
-                break;
-            case 3:
-                rStart1 = trash4;
-                break;
-            case 4:
-                rStart1 = trash5;
-                break;
-            case 5:
-                rStart1 = trash6;
-                break;
-            case 6:
-                rStart1 = trash7;
-                break;
-            case 7:
-                rStart1 = trash8;
-                break;
-            case 8:
-                rStart1 = trash9;
-                break;
-            case 9:
-                rStart1 = trash10;
-                break;
-            case 10:
                 rStart1 = recycle1;
                 break;
-            case 11:
+            case 2:
+                rStart1 = trash2;
+                break;
+            case 3:
                 rStart1 = recycle2;
                 break;
-            case 12:
+            case 4:
+                rStart1 = trash3;
+                break;
+            case 5:
                 rStart1 = recycle3;
                 break;
-            case 13:
+            case 6:
+                rStart1 = trash4;
+                break;
+            case 7:
                 rStart1 = recycle4;
                 break;
-            case 14:
+            case 8:
+                rStart1 = trash5;
+                break;
+            case 9:
                 rStart1 = recycle5;
                 break;
-            case 15:
+            case 10:
+                rStart1 = trash6;
+                break;
+            case 11:
                 rStart1 = recycle6;
                 break;
-            case 16:
+            case 12:
+                rStart1 = trash7;
+                break;
+            case 13:
                 rStart1 = recycle7;
                 break;
-            case 17:
+            case 14:
+                rStart1 = trash8;
+                break;
+            case 15:
                 rStart1 = recycle8;
                 break;
-            case 18:
+            case 16:
+                rStart1 = trash9;
+                break;
+            case 17:
                 rStart1 = recycle9;
+                break;
+            case 18:
+                rStart1 = trash10;
                 break;
             case 19:
                 rStart1 = recycle10;
@@ -358,7 +358,7 @@ public class Random_System : MonoBehaviour
 
     void makeRandom_item()  //스페이스 누르면 첫 번째 오브젝트 삭제 후 새 오브젝트 생성 및 이동
     {
-        int makeRandom_value = Random.Range(0, 4);
+        int makeRandom_value = Random.Range(0, 20);
 
         switch(makeRandom_value)  //random 변수에 새로운 오브젝트 할당
         {

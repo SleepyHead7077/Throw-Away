@@ -86,6 +86,7 @@ public class LoseHp : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
     }
 
+    /*
     IEnumerator HpRecover()
     {
         if (gaugeStart)
@@ -97,6 +98,7 @@ public class LoseHp : MonoBehaviour
         }
         yield return new WaitForSecondsRealtime(1f);
     }
+    */
 
     IEnumerator CheckGauge()
     {
