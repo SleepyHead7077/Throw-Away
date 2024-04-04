@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManaher : MonoBehaviour
+public class LoseHp : MonoBehaviour
 {
     private GameObject scoreObject;
     public Slider slider;
@@ -41,6 +41,16 @@ public class GameManaher : MonoBehaviour
     public void SetHealth(int health)
     {
         slider.value = health;
+    }
+
+    public void CorrectHp()
+    {
+        slider.value += 20f;
+    }
+
+    public void WrongtHp()
+    {
+        slider.value -= 20f;
     }
 
     /*
