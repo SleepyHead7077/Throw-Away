@@ -29,6 +29,10 @@ public class Random_System : MonoBehaviour
     public GameObject recycle8;
     public GameObject recycle9;
     public GameObject recycle10;
+    public GameObject trash9;
+    public GameObject recycle11;
+    public GameObject recycle12;
+    public GameObject recycle13;
 
     //오브젝트 위치 변수
     public Transform pos1;
@@ -67,10 +71,10 @@ public class Random_System : MonoBehaviour
 
     void startRandom_item()  //시작 시 랜덤한 오브젝트 설정 후 배치
     {
-        int rvalue1 = Random.Range(0, 18);
-        int rvalue2 = Random.Range(0, 18);
-        int rvalue3 = Random.Range(0, 18);
-        int rvalue4 = Random.Range(0, 18);
+        int rvalue1 = Random.Range(0, 22);
+        int rvalue2 = Random.Range(0, 22);
+        int rvalue3 = Random.Range(0, 22);
+        int rvalue4 = Random.Range(0, 22);
 
         switch(rvalue1)
         {
@@ -127,6 +131,18 @@ public class Random_System : MonoBehaviour
                 break;
             case 17:
                 rStart1 = recycle10;
+                break;
+            case 18:
+                rStart1 = trash9;
+                break;
+            case 19:
+                rStart1 = recycle11;
+                break;
+            case 20:
+                rStart1 = recycle12;
+                break;
+            case 21:
+                rStart1 = recycle13;
                 break;
         }
 
@@ -186,6 +202,18 @@ public class Random_System : MonoBehaviour
             case 17:
                 rStart2 = recycle10;
                 break;
+            case 18:
+                rStart2 = trash9;
+                break;
+            case 19:
+                rStart2 = recycle11;
+                break;
+            case 20:
+                rStart2 = recycle12;
+                break;
+            case 21:
+                rStart2 = recycle13;
+                break;
         }
 
         switch (rvalue3)
@@ -243,6 +271,19 @@ public class Random_System : MonoBehaviour
                 break;
             case 17:
                 rStart3 = recycle10;
+                break;
+
+            case 18:
+                rStart3 = trash9;
+                break;
+            case 19:
+                rStart3 = recycle11;
+                break;
+            case 20:
+                rStart3 = recycle12;
+                break;
+            case 21:
+                rStart3 = recycle13;
                 break;
         }
 
@@ -302,6 +343,18 @@ public class Random_System : MonoBehaviour
             case 17:
                 rStart4 = recycle10;
                 break;
+            case 18:
+                rStart4 = trash9;
+                break;
+            case 19:
+                rStart4 = recycle11;
+                break;
+            case 20:
+                rStart4 = recycle12;
+                break;
+            case 21:
+                rStart4 = recycle13;
+                break;
         }
 
         Instantiate(rStart1, pos1);  //생성
@@ -348,7 +401,7 @@ public class Random_System : MonoBehaviour
 
     void makeRandom_item()  //스페이스 누르면 첫 번째 오브젝트 삭제 후 새 오브젝트 생성 및 이동
     {
-        int makeRandom_value = Random.Range(0, 18);
+        int makeRandom_value = Random.Range(0, 22);
 
         switch(makeRandom_value)  //random 변수에 새로운 오브젝트 할당
         {
@@ -405,6 +458,18 @@ public class Random_System : MonoBehaviour
                 break;
             case 17:
                 random = recycle10;
+                break;
+            case 18:
+                random = trash9;
+                break;
+            case 19:
+                random = recycle11;
+                break;
+            case 20:
+                random = recycle12;
+                break;
+            case 21:
+                random = recycle13;
                 break;
         }
 

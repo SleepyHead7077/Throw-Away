@@ -10,6 +10,17 @@ public class StartSceneBtn : MonoBehaviour
     public GameObject scene3;
     public GameObject scene4;
 
+    public GameObject audioObject;
+    public GameObject onSound;
+    public GameObject offSound;
+
+    private AudioSource uiClick;
+
+    private void Start()
+    {
+        uiClick = gameObject.GetComponent<AudioSource>();
+    }
+
     public void StartCutScene()
     {
         scene1.SetActive(true);
@@ -41,5 +52,26 @@ public class StartSceneBtn : MonoBehaviour
     public void UIQuit()
     {
         Application.Quit();
+    }
+
+    public void GameUISoundOff()
+    {
+        audioObject.SetActive(false);
+        onSound.SetActive(false);
+        offSound.SetActive(true);
+        //audioListener.enabled = false;
+    }
+
+    public void GameUISoundOn()
+    {
+        audioObject.SetActive(true);
+        onSound.SetActive(true);
+        offSound.SetActive(false);
+        //audioListener.enabled = true;
+    }
+
+    public void UiClickSound()
+    {
+        uiClick.Play();
     }
 }

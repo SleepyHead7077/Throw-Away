@@ -76,10 +76,10 @@ public class LoseHp : MonoBehaviour
     {
         if (gaugeStart)
         {
-            if (score < 1000) gaugeReductionRate = 3.3f;  // 점수 10미만 초당 3.3감소
-            if (score >= 1000 && score <= 3000) gaugeReductionRate = 5f;  // 초당 5 감소
-            if (score >= 3000 && score <= 5000) gaugeReductionRate = 8f;  // 초당 8 감소
-            if (score >= 5000) gaugeReductionRate = 12f;  // 초당 12 감소
+            if (score < 1000) gaugeReductionRate = 3f;  // 점수 10미만 초당 X감소
+            if (score >= 1000 && score <= 3000) gaugeReductionRate = 4f;  // 초당 X 감소
+            if (score >= 3000 && score <= 5000) gaugeReductionRate = 5f;  // 초당 X 감소
+            if (score >= 5000) gaugeReductionRate = 8f;  // 초당 X 감소
             slider.value -= gaugeReductionRate * Time.deltaTime;  // 실제 HP 감소 실행 매초 1회
             
             if(slider.value>0)

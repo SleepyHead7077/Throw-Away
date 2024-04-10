@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     AudioSource complete;
     AudioSource correct;
     AudioSource wrong;
+    AudioSource gameWin;
+    AudioSource gameLose;
 
     void Start()
     {
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
         complete = audioManager.completeAS.GetComponent<AudioSource>();
         correct = audioManager.correctAS.GetComponent<AudioSource>();
         wrong = audioManager.wrongAS.GetComponent<AudioSource>();
+        gameWin = audioManager.gameWinAS.GetComponent<AudioSource>();
+        gameLose = audioManager.gameLoseAS.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -65,13 +69,15 @@ public class GameManager : MonoBehaviour
             stage.Pause();
             complete.Play();
 
-            if (score >= 8000)
+            if (score >= 5000)
             {
                 happyTurtle.SetActive(true);
+                gameWin.Play();
             }
             else
             {
                 sadTurtle.SetActive(true);
+                gameLose.Play();
             }
         }
     }
@@ -97,6 +103,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateTimeText()
     {
-        timeText.text = "Play Time: " + (int)time;
+        timeText.text = "Play Time: " + (int)time + "s";
     }
 }

@@ -8,4 +8,7 @@ public class AudioManager : MonoBehaviour
     public GameObject completeAS;
     public GameObject wrongAS;
     public GameObject correctAS;
+
+    public GameObject gameWinAS;
+    public GameObject gameLoseAS;
 }
