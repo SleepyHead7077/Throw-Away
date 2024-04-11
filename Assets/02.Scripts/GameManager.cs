@@ -103,6 +103,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateTimeText()
     {
-        timeText.text = "Play Time: " + (int)time + "s";
+        timeText.text = (int)time + "s";
     }
 }
